@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { readingTimeLabel } from '../utils/reading-time';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+	featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const { title, description, pubDate, heroImage, heroAlt, category } = post.data;
+const href = `/blog/${post.id}/`;
+const rt = readingTimeLabel(post.body ?? '');
+---
+
+<article class:list={['post-card', { featured }]}>
+	{
+		heroImage && (
+			<a class="pc-media" href={href} tabindex="-1" aria-hidden="true">
+				<Image
+					src={heroImage}
+					alt={heroAlt || ''}
+					widths={featured ? [480, 800, 1200] : [320, 560, 720]}
+					sizes={featured ? '(max-width: 760px) 100vw, 1040px' : '(max-width: 760px) 100vw, 340px'}
+					loading="lazy"
+					decoding="async"
+				/>
+			</a>
+		)
+	}
+	<div class="pc-body">
+		<span class="eyebrow">{category}</span>
+		<h3 class="pc-title"><a href={href}>{title}</a></h3>
+		<p class="pc-desc muted">{description}</p>
+		<p class="pc-meta muted"><FormattedDate date={pubDate} /> · {rt}</p>
+	</div>
+</article>
+
+<style>
+	.post-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+	.pc-media {
+		display: block;
+		overflow: hidden;
+		border-radius: var(--radius);
+		border: 1px solid var(--line);
+	}
+	.pc-media :global(img) {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 0;
+		border: 0;
+		transition: transform 0.3s ease;
+	}
+	.pc-media:hover :global(img) {
+		transform: scale(1.03);
+	}
+	.pc-body {
+		padding-top: 1rem;
+	}
+	.pc-title {
+		margin: 0.1rem 0 0.4rem;
+		font-size: 1.3rem;
+		line-height: 1.2;
+	}
+	.pc-title a {
+		color: var(--paper);
+	}
+	.pc-title a:hover {
+		color: var(--amber);
+		text-decoration: none;
+	}
+	.pc-desc {
+		margin: 0 0 0.6rem;
+		font-size: 0.98rem;
+	}
+	.pc-meta {
+		margin: 0;
+		font-size: 0.85rem;
+	}
+
+	.featured {
+		gap: 0.5rem;
+	}
+	@media (min-width: 760px) {
+		.featured {
+			display: grid;
+			grid-template-columns: 1.3fr 1fr;
+			gap: 2rem;
+			align-items: center;
+		}
+		.featured .pc-title {
+			font-size: 2rem;
+		}
+		.featured .pc-desc {
+			font-size: 1.1rem;
+		}
+	}
+</style>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-label="Progress bar: Binance says it has already replaced about 90 to 95 percent of affected assets from its own reserves.">
+  <style>
+    text { font-family: 'Space Grotesk', ui-sans-serif, system-ui, Arial, sans-serif; }
+    .ttl { fill: #9a9aa5; font-size: 16px; letter-spacing: .04em; }
+    .big { fill: #FFC400; font-size: 54px; font-weight: 700; }
+    .cap { fill: #9a9aa5; font-size: 15px; }
+  </style>
+  <rect width="720" height="300" fill="#0E0E10"/>
+  <text class="ttl" x="50" y="56">BINANCE SAYS IT HAS ALREADY REPLACED…</text>
+  <text class="big" x="50" y="130">~90–95%</text>
+  <!-- track -->
+  <rect x="50" y="160" width="620" height="44" rx="22" fill="#1d1d22" stroke="#2a2a31"/>
+  <!-- fill ~92% -->
+  <rect x="50" y="160" width="570" height="44" rx="22" fill="#FFC400"/>
+  <text class="cap" x="50" y="244">…of affected assets, from its own reserves (SAFU fund + treasury).</text>
+  <text class="cap" x="50" y="268" fill="#19E3A6">Separately, ~$3B of the stolen crypto has been frozen — not yet recovered.</text>
+</svg>

@@ -1,0 +1,90 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<header class="site-header">
+	<div class="container nav">
+		<a class="brand" href="/">
+			<span class="brand-mark" aria-hidden="true">BB</span>
+			<span class="brand-name">The Buzz Break</span>
+		</a>
+		<nav class="nav-links" aria-label="Primary">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Latest</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</nav>
+		<div class="nav-social">
+			<SocialLinks />
+		</div>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		background: color-mix(in srgb, var(--ink) 88%, transparent);
+		backdrop-filter: saturate(140%) blur(10px);
+		border-bottom: 1px solid var(--line);
+	}
+	.nav {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		min-height: 64px;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-right: auto;
+		color: var(--paper);
+	}
+	.brand:hover {
+		text-decoration: none;
+	}
+	.brand-mark {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 34px;
+		height: 34px;
+		background: var(--amber);
+		color: var(--ink);
+		border-radius: 9px;
+		font-family: var(--font-heading), sans-serif;
+		font-weight: 700;
+		font-size: 0.95rem;
+		letter-spacing: -0.03em;
+	}
+	.brand-name {
+		font-family: var(--font-heading), sans-serif;
+		font-weight: 700;
+		font-size: 1.1rem;
+		letter-spacing: -0.02em;
+	}
+	.nav-links {
+		display: flex;
+		gap: 1.25rem;
+	}
+	.nav-social {
+		display: none;
+	}
+	@media (min-width: 720px) {
+		.nav-social {
+			display: block;
+			padding-left: 1rem;
+			border-left: 1px solid var(--line);
+		}
+	}
+	@media (max-width: 480px) {
+		.brand-name {
+			display: none;
+		}
+		.nav {
+			gap: 0.75rem;
+		}
+	}
+</style>

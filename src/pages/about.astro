@@ -1,0 +1,77 @@
+---
+import { CONTACT_EMAIL, SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="About"
+	description="What The Buzz Break is, who it's for, and how we cover money and tech."
+>
+	<section class="container prose page">
+		<span class="eyebrow">About</span>
+		<h1>The money and tech news that actually matters.</h1>
+
+		<p class="lede">
+			{SITE_TITLE} is an independent publication for people who want to understand the money and
+			technology stories shaping their lives — without the hype, the doom, or the jargon.
+		</p>
+
+		<p>
+			Every day there's a new headline about a hack, a stock, an AI launch, or a shift in the
+			economy. Most coverage either assumes you already speak the language or leans on fear to win
+			the click. We do the opposite: we take the one story that genuinely moved your money or your
+			tech, explain it so anyone can follow, and point out the twist that most of the coverage
+			skips.
+		</p>
+
+		<h2>What we promise</h2>
+		<ul>
+			<li><strong>Plain English.</strong> If a term needs explaining, we explain it.</li>
+			<li><strong>Receipts.</strong> Every story links to the primary reporting behind it.</li>
+			<li>
+				<strong>Calm over clickbait.</strong> We skip words like "crash," "insane," and "you won't
+				believe." The facts are interesting enough.
+			</li>
+			<li>
+				<strong>Explain, never advise.</strong> We help you understand what happened and what to
+				watch — we never tell you what to buy, sell, or hold.
+			</li>
+		</ul>
+
+		<h2>How we report</h2>
+		<p>
+			We build each story from multiple established news sources and primary statements, and we're
+			careful to separate what's confirmed from what's still developing. When facts are contested —
+			who was behind an attack, how much was really recovered — we say so plainly and attribute the
+			claim rather than stating it as settled. When a story changes, we update it and note the date.
+		</p>
+
+		<h2>Not financial advice</h2>
+		<p>
+			Nothing here is financial, investment, legal, or tax advice, and nothing on this site is a
+			recommendation to buy or sell anything. We're a journalism and education project. For
+			decisions about your own money, talk to a qualified professional who knows your situation. See
+			our <a href="/disclaimer">full disclaimer</a> for the details, including how we handle affiliate
+			links and advertising.
+		</p>
+
+		<h2>Say hello</h2>
+		<p>
+			Story tips, corrections, and partnership questions are welcome at{' '}
+			<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. You can also follow along on YouTube,
+			Instagram, TikTok, and X — all <strong>@thebuzzbreak</strong> (X: <strong
+				>@thebuzzbreakhq</strong
+			>).
+		</p>
+	</section>
+</BaseLayout>
+
+<style>
+	.page {
+		padding-top: 3rem;
+		padding-bottom: 1rem;
+	}
+	.page .eyebrow {
+		display: block;
+	}
+</style>

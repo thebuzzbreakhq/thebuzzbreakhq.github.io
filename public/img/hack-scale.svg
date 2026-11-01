@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-label="Bar chart: the roughly 6.3 billion dollar Binance theft versus the roughly 1.5 billion dollar Bybit theft of 2025.">
+  <style>
+    text { font-family: 'Space Grotesk', ui-sans-serif, system-ui, Arial, sans-serif; }
+    .ttl { fill: #9a9aa5; font-size: 16px; letter-spacing: .04em; }
+    .val { fill: #f7f7f5; font-size: 30px; font-weight: 700; }
+    .cap { fill: #9a9aa5; font-size: 15px; }
+  </style>
+  <rect width="720" height="360" fill="#0E0E10"/>
+  <text class="ttl" x="40" y="40">LARGEST CRYPTO THEFTS ON RECORD</text>
+  <line x1="40" y1="300" x2="680" y2="300" stroke="#2a2a31" stroke-width="1"/>
+  <!-- Binance 6.3B -->
+  <rect x="150" y="80" width="150" height="220" rx="6" fill="#FFC400"/>
+  <text class="val" x="225" y="68" text-anchor="middle">$6.3B</text>
+  <text class="cap" x="225" y="325" text-anchor="middle">Binance · 2026</text>
+  <!-- Bybit 1.5B -->
+  <rect x="430" y="248" width="150" height="52" rx="6" fill="#3a3a42"/>
+  <text class="val" x="505" y="236" text-anchor="middle" fill="#dcdce1">$1.5B</text>
+  <text class="cap" x="505" y="325" text-anchor="middle">Bybit · 2025</text>
+</svg>

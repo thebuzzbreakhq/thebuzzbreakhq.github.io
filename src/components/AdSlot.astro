@@ -1,0 +1,47 @@
+---
+// Display-ad slot. Renders nothing unless FEATURES.ads is true in src/consts.ts.
+// Wired for Google AdSense; the loader script lives in BaseHead.astro.
+import { ADS, FEATURES } from '../consts';
+
+interface Props {
+	placement?: 'in-article' | 'footer';
+}
+
+const { placement = 'in-article' } = Astro.props;
+const slot = placement === 'footer' ? ADS.slots.footer : ADS.slots.inArticle;
+---
+
+{
+	FEATURES.ads && (
+		<aside class="ad-slot" data-placement={placement} aria-label="Advertisement">
+			<span class="ad-label">Advertisement</span>
+			<ins
+				class="adsbygoogle"
+				style="display:block"
+				data-ad-client={ADS.adsenseClient}
+				data-ad-slot={slot}
+				data-ad-format="auto"
+				data-full-width-responsive="true"
+			/>
+			<script is:inline>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</aside>
+	)
+}
+
+<style>
+	.ad-slot {
+		margin: 2.5rem auto;
+		max-width: var(--prose);
+		text-align: center;
+	}
+	.ad-label {
+		display: block;
+		margin-bottom: 0.4rem;
+		color: var(--muted);
+		font-size: 0.7rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+</style>

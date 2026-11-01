@@ -1,0 +1,98 @@
+---
+// A single, clearly-disclosed affiliate placement.
+// Pass a list of partner links; set the real URLs in src/consts.ts (AFFILIATE).
+// Any URL left as a placeholder renders as "link coming soon" rather than a dead link.
+import { AFFILIATE } from '../consts';
+
+interface AffiliateLink {
+	label: string;
+	href: string;
+	note?: string;
+}
+
+interface Props {
+	title?: string;
+	intro?: string;
+	links: AffiliateLink[];
+}
+
+const { title = 'Partner picks', intro, links } = Astro.props;
+
+const isPlaceholder = (href: string) =>
+	!href || href.startsWith('YOUR-') || href.includes('example');
+---
+
+<aside class="aff card">
+	<div class="aff-head">
+		<span class="aff-tag">Partner picks</span>
+		<h3>{title}</h3>
+		{intro && <p class="muted aff-intro">{intro}</p>}
+	</div>
+	<ul class="aff-list">
+		{
+			links.map((l) => (
+				<li>
+					{isPlaceholder(l.href) ? (
+						<span class="aff-soon">
+							{l.label} <span class="muted">(link coming soon)</span>
+						</span>
+					) : (
+						<a class="aff-link" href={l.href} target="_blank" rel="sponsored nofollow noopener">
+							{l.label} <span aria-hidden="true">↗</span>
+						</a>
+					)}
+					{l.note && <span class="aff-note muted"> — {l.note}</span>}
+				</li>
+			))
+		}
+	</ul>
+	<p class="aff-disc muted">{AFFILIATE.disclosure}</p>
+</aside>
+
+<style>
+	.aff {
+		margin: 2.5rem auto;
+		max-width: var(--prose);
+		padding: 1.5rem;
+	}
+	.aff-tag {
+		display: inline-block;
+		margin-bottom: 0.5rem;
+		padding: 0.2rem 0.6rem;
+		background: color-mix(in srgb, var(--amber) 16%, transparent);
+		color: var(--amber);
+		border-radius: 999px;
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+	.aff-head h3 {
+		margin: 0.2rem 0 0.4rem;
+	}
+	.aff-intro {
+		margin: 0 0 0.5rem;
+		font-size: 0.98rem;
+	}
+	.aff-list {
+		margin: 0.75rem 0;
+		padding-left: 1.1rem;
+	}
+	.aff-list li {
+		margin-bottom: 0.4rem;
+	}
+	.aff-link {
+		font-weight: 600;
+	}
+	.aff-soon {
+		color: var(--text);
+		font-weight: 600;
+	}
+	.aff-disc {
+		margin: 1rem 0 0;
+		padding-top: 0.9rem;
+		border-top: 1px solid var(--line);
+		font-size: 0.8rem;
+		line-height: 1.55;
+	}
+</style>

@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from '../../components/PostCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog'))
+	.filter((post) => !post.data.draft)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Latest" description="Every story from The Buzz Break — money and tech, decoded.">
+	<section class="container listing">
+		<header class="listing-head">
+			<p class="eyebrow">The archive</p>
+			<h1>Latest stories</h1>
+		</header>
+		<div class="grid">
+			{posts.map((post) => <PostCard post={post} />)}
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.listing {
+		padding-top: 3rem;
+	}
+	.listing-head {
+		margin-bottom: 2rem;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+	@media (min-width: 760px) {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1000px) {
+		.grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>

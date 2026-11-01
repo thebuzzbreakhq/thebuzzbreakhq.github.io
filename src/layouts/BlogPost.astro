@@ -1,0 +1,122 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import AdSlot from '../components/AdSlot.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { SITE_TITLE } from '../consts';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = CollectionEntry<'blog'>['data'] & { readingTime?: number };
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	heroAlt,
+	category,
+	ogImage,
+	readingTime,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://thebuzzbreakhq.github.io');
+const pageURL = new URL(Astro.url.pathname, site).href;
+const imageURL = new URL(ogImage ?? '/og/default.png', site).href;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description,
+	image: [imageURL],
+	datePublished: pubDate.toISOString(),
+	dateModified: (updatedDate ?? pubDate).toISOString(),
+	author: { '@type': 'Organization', name: SITE_TITLE, url: site.href },
+	publisher: {
+		'@type': 'Organization',
+		name: SITE_TITLE,
+		logo: { '@type': 'ImageObject', url: new URL('/favicon-512.png', site).href },
+	},
+	mainEntityOfPage: { '@type': 'WebPage', '@id': pageURL },
+	articleSection: category,
+	isAccessibleForFree: true,
+};
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+	type="article"
+	image={ogImage}
+	publishedDate={pubDate}
+	updatedDate={updatedDate}
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+	</Fragment>
+
+	<article class="container post">
+		<header class="post-head">
+			<span class="eyebrow">{category}</span>
+			<h1>{title}</h1>
+			<p class="post-meta muted">
+				<FormattedDate date={pubDate} />
+				{readingTime && <span> · {readingTime} min read</span>}
+				{updatedDate && (
+					<span> · Updated <FormattedDate date={updatedDate} /></span>
+				)}
+			</p>
+		</header>
+
+		{
+			heroImage && (
+				<figure class="post-hero">
+					<Image
+						src={heroImage}
+						alt={heroAlt || ''}
+						widths={[480, 800, 1200, 1600]}
+						sizes="(max-width: 760px) 100vw, 760px"
+						loading="eager"
+					/>
+				</figure>
+			)
+		}
+
+		<div class="prose">
+			<slot />
+		</div>
+
+		<AdSlot placement="in-article" />
+		<NewsletterSignup />
+	</article>
+</BaseLayout>
+
+<style>
+	.post {
+		padding-top: 2.5rem;
+	}
+	.post-head {
+		max-width: var(--prose);
+		margin: 0 auto 1.5rem;
+		text-align: center;
+	}
+	.post-head h1 {
+		margin: 0.4rem 0 0.6rem;
+	}
+	.post-meta {
+		margin: 0;
+		font-size: 0.9rem;
+	}
+	.post-hero {
+		margin: 0 auto 2.5rem;
+		max-width: var(--prose);
+	}
+	.post-hero :global(img) {
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+	}
+</style>

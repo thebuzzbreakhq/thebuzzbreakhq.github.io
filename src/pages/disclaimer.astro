@@ -1,0 +1,80 @@
+---
+import { AFFILIATE, CONTACT_EMAIL, SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Disclaimer"
+	description="Editorial, financial, affiliate, and advertising disclosures for The Buzz Break."
+>
+	<section class="container prose page">
+		<span class="eyebrow">Legal</span>
+		<h1>Disclaimer & disclosures</h1>
+		<p class="lede">
+			{SITE_TITLE} is an independent journalism and education project. This page explains the limits
+			of what you'll find here and how we make money.
+		</p>
+
+		<h2>Not financial advice</h2>
+		<p>
+			The content on this site is for general information and education only. It is <strong
+				>not</strong
+			> financial, investment, legal, accounting, or tax advice, and nothing here is a recommendation
+			to buy, sell, or hold any asset, security, or cryptocurrency. We don't know your personal
+			circumstances, and reading this site does not create any advisor–client relationship. Markets
+			and crypto are volatile and you can lose money. Always do your own research and consider
+			speaking with a licensed professional before making financial decisions.
+		</p>
+
+		<h2>Developing stories & accuracy</h2>
+		<p>
+			We work hard to be accurate and to source every claim, but news — especially around hacks,
+			markets, and investigations — develops quickly, and figures can change or be revised. We
+			distinguish confirmed facts from unconfirmed reports and attribute contested claims rather
+			than asserting them. If we get something wrong, email us and we'll correct it. Updated
+			articles show a revised date.
+		</p>
+
+		<h2>Affiliate disclosure</h2>
+		<p>{AFFILIATE.disclosure}</p>
+		<p>
+			Affiliate links are marked and never change our editorial coverage. We only mention products
+			we believe are relevant to the story, and the presence of a link is not an endorsement or a
+			recommendation that you buy anything.
+		</p>
+
+		<h2>Advertising</h2>
+		<p>
+			This site may display third-party ads to support our work. Ads are labelled, and we don't
+			control the specific products advertised. Ad networks may use cookies to serve relevant ads;
+			you can manage this through your browser and the ad provider's settings.
+		</p>
+
+		<h2>External links</h2>
+		<p>
+			We link to outside sources so you can read the original reporting. We're not responsible for
+			the content, accuracy, or privacy practices of websites we link to.
+		</p>
+
+		<h2>Privacy & the newsletter</h2>
+		<p>
+			If you subscribe to our newsletter, we use your email address only to send you our updates,
+			through our email provider, and you can unsubscribe at any time. We don't sell your data.
+		</p>
+
+		<h2>Contact</h2>
+		<p>
+			Questions or corrections? Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+		</p>
+	</section>
+</BaseLayout>
+
+<style>
+	.page {
+		padding-top: 3rem;
+		padding-bottom: 1rem;
+	}
+	.page .eyebrow {
+		display: block;
+	}
+</style>

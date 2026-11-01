@@ -1,0 +1,86 @@
+---
+// Email capture. Defaults to Buttondown (free, privacy-friendly). Configure the
+// username (or a MailerLite action URL) in src/consts.ts. Until configured, the
+// box renders in a clear "opening soon" state instead of a broken form.
+import { NEWSLETTER } from '../consts';
+
+const { provider, buttondownUsername, mailerliteActionUrl } = NEWSLETTER;
+
+const configured =
+	provider === 'buttondown'
+		? Boolean(buttondownUsername) && !buttondownUsername.startsWith('YOUR_')
+		: Boolean(mailerliteActionUrl);
+
+const action =
+	provider === 'buttondown'
+		? `https://buttondown.com/api/emails/embed-subscribe/${buttondownUsername}`
+		: mailerliteActionUrl;
+---
+
+<section class="newsletter card" aria-labelledby="nl-title">
+	<div class="nl-copy">
+		<span class="eyebrow">Newsletter</span>
+		<h2 id="nl-title">The one story that matters, in your inbox</h2>
+		<p class="muted">Money and tech, decoded. A few minutes, no hype. Unsubscribe anytime.</p>
+	</div>
+	<form class="nl-form" action={action} method="post" target="_blank">
+		<label class="sr-only" for="nl-email">Email address</label>
+		<input
+			id="nl-email"
+			type="email"
+			name="email"
+			placeholder="you@email.com"
+			autocomplete="email"
+			required
+			disabled={!configured}
+		/>
+		<button class="btn" type="submit" disabled={!configured}>Subscribe</button>
+	</form>
+	{!configured && <p class="nl-note muted">Sign-up opens soon.</p>}
+</section>
+
+<style>
+	.newsletter {
+		margin: 3rem auto;
+		max-width: var(--prose);
+		padding: 1.75rem;
+		background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+	}
+	.nl-copy h2 {
+		margin: 0.3rem 0 0.4rem;
+		font-size: 1.4rem;
+	}
+	.nl-copy p {
+		margin: 0 0 1.1rem;
+	}
+	.nl-form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+	}
+	.nl-form input {
+		flex: 1 1 220px;
+		min-width: 0;
+		padding: 0.8em 1em;
+		background: var(--ink);
+		color: var(--paper);
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		font-size: 1rem;
+	}
+	.nl-form input:focus {
+		border-color: var(--amber);
+		outline: none;
+	}
+	.nl-form input:disabled {
+		opacity: 0.6;
+	}
+	.btn:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+	.nl-note {
+		margin: 0.75rem 0 0;
+		font-size: 0.85rem;
+	}
+</style>

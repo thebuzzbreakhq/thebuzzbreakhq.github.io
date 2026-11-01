@@ -1,0 +1,110 @@
+---
+import { CONTACT_EMAIL, SITE_TAGLINE, SITE_TITLE } from '../consts';
+import AdSlot from './AdSlot.astro';
+import SocialLinks from './SocialLinks.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container">
+		<AdSlot placement="footer" />
+
+		<div class="foot-top">
+			<div class="foot-brand">
+				<span class="brand-mark" aria-hidden="true">BB</span>
+				<div>
+					<p class="foot-name">{SITE_TITLE}</p>
+					<p class="muted foot-tag">{SITE_TAGLINE}</p>
+				</div>
+			</div>
+			<SocialLinks />
+		</div>
+
+		<nav class="foot-links" aria-label="Footer">
+			<a href="/">Home</a>
+			<a href="/blog">Latest</a>
+			<a href="/about">About</a>
+			<a href="/disclaimer">Disclaimer</a>
+			<a href="/rss.xml">RSS</a>
+			<a href={`mailto:${CONTACT_EMAIL}`}>Contact</a>
+		</nav>
+
+		<p class="foot-disclaimer muted">
+			{SITE_TITLE} is an independent publication. Everything here is journalism and education — not
+			financial, investment, legal or tax advice. See our <a href="/disclaimer">full disclaimer</a>.
+		</p>
+
+		<p class="foot-copy muted">© {year} {SITE_TITLE}. All rights reserved.</p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		margin-top: 5rem;
+		padding: 2.5rem 0 3.5rem;
+		border-top: 1px solid var(--line);
+		background: var(--ink-2);
+	}
+	.foot-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.25rem;
+		margin-bottom: 1.5rem;
+	}
+	.foot-brand {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+	.brand-mark {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background: var(--amber);
+		color: var(--ink);
+		border-radius: 10px;
+		font-family: var(--font-heading), sans-serif;
+		font-weight: 700;
+	}
+	.foot-name {
+		margin: 0;
+		color: var(--paper);
+		font-family: var(--font-heading), sans-serif;
+		font-weight: 700;
+		font-size: 1.05rem;
+	}
+	.foot-tag {
+		margin: 0.1rem 0 0;
+		font-size: 0.9rem;
+	}
+	.foot-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem;
+		padding: 1.25rem 0;
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+	.foot-links a {
+		color: var(--text);
+		font-size: 0.95rem;
+	}
+	.foot-links a:hover {
+		color: var(--amber);
+	}
+	.foot-disclaimer {
+		margin: 1.25rem 0 0.5rem;
+		font-size: 0.85rem;
+		line-height: 1.6;
+		max-width: 68ch;
+	}
+	.foot-copy {
+		margin: 0;
+		font-size: 0.85rem;
+	}
+</style>

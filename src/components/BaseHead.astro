@@ -1,0 +1,93 @@
+---
+// Global <head>: SEO meta, Open Graph, Twitter cards, icons, fonts, feeds.
+import '../styles/global.css';
+import { Font } from 'astro:assets';
+import { ADS, FEATURES, SITE_LOCALE, SITE_TITLE, TWITTER_HANDLE } from '../consts';
+
+interface Props {
+	title?: string;
+	description?: string;
+	/** OG/Twitter image path under /public (or absolute URL). */
+	image?: string;
+	type?: 'website' | 'article';
+	publishedDate?: Date;
+	updatedDate?: Date;
+	/** Override canonical path; defaults to the current URL. */
+	canonical?: string;
+	noindex?: boolean;
+}
+
+const {
+	title = SITE_TITLE,
+	description,
+	image = '/og/default.png',
+	type = 'website',
+	publishedDate,
+	updatedDate,
+	canonical,
+	noindex = false,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://thebuzzbreakhq.github.io');
+const canonicalURL = new URL(canonical ?? Astro.url.pathname, site);
+const ogImageURL = new URL(image, site);
+const pageTitle = title === SITE_TITLE ? title : `${title} — ${SITE_TITLE}`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex,nofollow" />}
+
+<!-- Icons & theme -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#0E0E10" />
+
+<!-- Feeds & sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', site)} />
+
+<!-- Primary meta -->
+<title>{pageTitle}</title>
+{description && <meta name="description" content={description} />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE_TITLE} />
+<meta property="og:locale" content={SITE_LOCALE} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+{description && <meta property="og:description" content={description} />}
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{type === 'article' && publishedDate && (
+	<meta property="article:published_time" content={publishedDate.toISOString()} />
+)}
+{type === 'article' && updatedDate && (
+	<meta property="article:modified_time" content={updatedDate.toISOString()} />
+)}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={TWITTER_HANDLE} />
+<meta name="twitter:creator" content={TWITTER_HANDLE} />
+<meta name="twitter:title" content={title} />
+{description && <meta name="twitter:description" content={description} />}
+<meta name="twitter:image" content={ogImageURL} />
+
+<!-- Fonts (self-hosted at build time) -->
+<Font cssVariable="--font-heading" preload />
+<Font cssVariable="--font-body" preload />
+
+<!-- Display ads loader — only when ads are switched on in src/consts.ts -->
+{FEATURES.ads && (
+	<script
+		async
+		src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS.adsenseClient}`}
+		crossorigin="anonymous"></script>
+)}
