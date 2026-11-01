@@ -5,7 +5,7 @@
 
 // Canonical site URL. Mirrors `site` in astro.config.mjs (kept in sync via Vite's
 // import.meta.env.SITE, with a literal fallback for safety).
-export const SITE_URL = (import.meta.env.SITE ?? 'https://thebuzzbreakhq.github.io').replace(/\/$/, '');
+export const SITE_URL = (import.meta.env.SITE ?? 'https://thebuzzbreak.com').replace(/\/$/, '');
 
 export const SITE_TITLE = 'The Buzz Break';
 export const SITE_DESCRIPTION =

@@ -11,7 +11,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 //   1. change the value below to  https://thebuzzbreak.com
 //   2. add a file  public/CNAME  containing a single line:  thebuzzbreak.com
 // Everything else (canonical, sitemap, OG, RSS) updates automatically.
-const SITE = 'https://thebuzzbreakhq.github.io';
+const SITE = 'https://thebuzzbreak.com';
 
 // https://astro.build/config
 export default defineConfig({
