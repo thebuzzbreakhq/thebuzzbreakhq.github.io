@@ -86,12 +86,11 @@ const hero = `
 const ogAiBubble = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="${INK}"/>
-  <polyline points="700,470 800,440 900,382 1000,330" fill="none" stroke="${AMBER}" stroke-width="16" stroke-opacity="0.14" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="1030" y="392" font-family="${FONT}" font-weight="700" font-size="210" fill="${AMBER}" fill-opacity="0.12">?</text>
-  <text x="80" y="150" font-family="${FONT}" font-weight="700" font-size="30" letter-spacing="6" fill="${AMBER}">MARKETS · EXPLAINER</text>
-  <text x="80" y="256" font-family="${FONT}" font-weight="700" font-size="76" fill="${PAPER}">Is the AI boom</text>
-  <text x="80" y="340" font-family="${FONT}" font-weight="700" font-size="76" fill="${PAPER}">a bubble?</text>
-  <text x="80" y="432" font-family="${FONT}" font-weight="700" font-size="50" fill="${AMBER}">What October&#39;s selloff means</text>
+  <text x="905" y="430" font-family="${FONT}" font-weight="700" font-size="230" fill="${AMBER}" fill-opacity="0.10">?</text>
+  <text x="80" y="132" font-family="${FONT}" font-weight="700" font-size="30" letter-spacing="6" fill="${AMBER}">MARKETS · EXPLAINER</text>
+  <text x="80" y="238" font-family="${FONT}" font-weight="700" font-size="76" fill="${PAPER}">The AI selloff</text>
+  <text x="80" y="326" font-family="${FONT}" font-weight="700" font-size="56" fill="${PAPER}">Bubble warning &#8212; or</text>
+  <text x="80" y="398" font-family="${FONT}" font-weight="700" font-size="56" fill="${AMBER}">a sale on the future?</text>
   <rect x="80" y="520" width="52" height="52" rx="12" fill="${AMBER}"/>
   <text x="106" y="557" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="28" fill="${INK}">BB</text>
   <text x="150" y="556" font-family="${FONT}" font-weight="700" font-size="30" fill="${PAPER}">The Buzz Break</text>

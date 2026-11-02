@@ -1,0 +1,35 @@
+<svg width="720" height="360" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A balance scale, sitting level, with the same 700 billion dollar AI spend in the middle. On the left, the bull reads it as a sale on the future; on the right, the bear reads it as a bubble to avoid.">
+  <title>The same fact, two opposite bets</title>
+  <rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+  <text x="36" y="44" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="800" fill="#0E0E10">The same fact, two opposite bets</text>
+  <text x="36" y="70" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#6b7280">A bull and a bear, reading the exact same number</text>
+
+  <!-- the shared fact -->
+  <rect x="283" y="100" width="154" height="36" rx="18" fill="#FFF4CC" stroke="#FFC400" stroke-width="2"/>
+  <text x="360" y="124" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">The same $700B</text>
+
+  <!-- stand -->
+  <polygon points="335,280 385,280 378,264 342,264" fill="#0E0E10"/>
+  <line x1="360" y1="264" x2="360" y2="152" stroke="#0E0E10" stroke-width="4"/>
+  <line x1="360" y1="136" x2="360" y2="152" stroke="#FFC400" stroke-width="3"/>
+
+  <!-- beam (level) -->
+  <line x1="200" y1="152" x2="520" y2="152" stroke="#0E0E10" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="360" cy="152" r="6" fill="#FFC400"/>
+
+  <!-- left pan (bull) -->
+  <line x1="222" y1="152" x2="196" y2="206" stroke="#12b886" stroke-width="2"/>
+  <line x1="222" y1="152" x2="248" y2="206" stroke="#12b886" stroke-width="2"/>
+  <polygon points="188,206 256,206 249,224 195,224" fill="#EAFBF4" stroke="#12b886" stroke-width="2.5"/>
+  <text x="222" y="247" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="800" fill="#12b886">▲ BULL</text>
+  <text x="222" y="266" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#6b7280">a sale on the future</text>
+
+  <!-- right pan (bear) -->
+  <line x1="498" y1="152" x2="472" y2="206" stroke="#e5484d" stroke-width="2"/>
+  <line x1="498" y1="152" x2="524" y2="206" stroke="#e5484d" stroke-width="2"/>
+  <polygon points="464,206 532,206 525,224 471,224" fill="#FDECEC" stroke="#e5484d" stroke-width="2.5"/>
+  <text x="498" y="247" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="800" fill="#e5484d">▼ BEAR</text>
+  <text x="498" y="266" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#6b7280">a bubble to avoid</text>
+
+  <text x="36" y="349" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#9ca3af">Same number, two honest reads. The market hasn&#39;t picked a side — a headline shouldn&#39;t either.</text>
+</svg>

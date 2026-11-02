@@ -1,0 +1,36 @@
+<svg width="720" height="360" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four things worth watching, in plain English: is the spending paying off; are they flooring it or braking; how much rides on a few names; and is it just them or everyone.">
+  <title>Four things worth watching</title>
+  <rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+  <text x="36" y="44" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="800" fill="#0E0E10">Four things worth watching</text>
+  <text x="36" y="70" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#6b7280">Plain-English signals — no finance degree needed</text>
+
+  <!-- tile 1 -->
+  <rect x="48" y="90" width="302" height="96" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <circle cx="86" cy="124" r="17" fill="#FFC400"/>
+  <text x="86" y="130" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">1</text>
+  <text x="116" y="123" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">Is the spending paying off?</text>
+  <text x="116" y="148" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#6b7280">Real returns from the AI they bought.</text>
+
+  <!-- tile 2 -->
+  <rect x="370" y="90" width="302" height="96" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <circle cx="408" cy="124" r="17" fill="#FFC400"/>
+  <text x="408" y="130" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">2</text>
+  <text x="438" y="123" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">Flooring it, or braking?</text>
+  <text x="438" y="148" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#6b7280">Do AI budgets rise next year, or shrink?</text>
+
+  <!-- tile 3 -->
+  <rect x="48" y="204" width="302" height="96" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <circle cx="86" cy="238" r="17" fill="#FFC400"/>
+  <text x="86" y="244" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">3</text>
+  <text x="116" y="237" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">How much rides on a few?</text>
+  <text x="116" y="262" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#6b7280">A few names fill the average index fund.</text>
+
+  <!-- tile 4 -->
+  <rect x="370" y="204" width="302" height="96" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <circle cx="408" cy="238" r="17" fill="#FFC400"/>
+  <text x="408" y="244" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">4</text>
+  <text x="438" y="237" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#0E0E10">Just them, or everyone?</text>
+  <text x="438" y="262" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#6b7280">Broad gains beat six stocks holding it up.</text>
+
+  <text x="36" y="340" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#9ca3af">A watch-list, not a to-do list. This is education, not financial advice.</text>
+</svg>
