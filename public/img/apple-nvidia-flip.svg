@@ -1,0 +1,25 @@
+<svg width="720" height="360" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Apple at about 5.03 trillion dollars edging past Nvidia at about 4.93 trillion dollars at the close on October 30, 2026">
+  <title>Apple retakes the most-valuable-company crown</title>
+  <rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+  <text x="36" y="44" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="800" fill="#0E0E10">Apple just retook the crown</text>
+  <text x="36" y="70" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#6b7280">World&#39;s most valuable company — market cap at the close, Oct 30, 2026</text>
+
+  <!-- baseline -->
+  <line x1="60" y1="300" x2="690" y2="300" stroke="#e5e7eb" stroke-width="2"/>
+
+  <!-- Apple bar (amber, #1) -->
+  <rect x="165" y="122" width="150" height="178" rx="8" fill="#FFC400"/>
+  <text x="240" y="112" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="800" fill="#0E0E10">$5.03T</text>
+  <rect x="213" y="78" width="54" height="22" rx="11" fill="#0E0E10"/>
+  <text x="240" y="93" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#FFC400">#1</text>
+  <text x="240" y="326" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#0E0E10">Apple</text>
+
+  <!-- Nvidia bar (grey, #2) -->
+  <rect x="405" y="126" width="150" height="174" rx="8" fill="#9aa0a6"/>
+  <text x="480" y="116" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="800" fill="#4b5563">$4.93T</text>
+  <rect x="453" y="82" width="54" height="22" rx="11" fill="#eef0f2"/>
+  <text x="480" y="97" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#6b7280">#2</text>
+  <text x="480" y="326" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#0E0E10">Nvidia</text>
+
+  <text x="36" y="349" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#9ca3af">At the Oct 30 close. Nvidia fell 4.2% that day — the lead came from its drop. Source: Yahoo Finance.</text>
+</svg>

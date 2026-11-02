@@ -82,6 +82,52 @@ const hero = `
   <text x="762" y="799" font-family="${FONT}" font-weight="700" font-size="34" fill="${PAPER}">The Buzz Break</text>
 </svg>`;
 
+// --- Post social card (AI bubble story) ---
+const ogAiBubble = `
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="${INK}"/>
+  <polyline points="700,470 800,440 900,382 1000,330" fill="none" stroke="${AMBER}" stroke-width="16" stroke-opacity="0.14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1030" y="392" font-family="${FONT}" font-weight="700" font-size="210" fill="${AMBER}" fill-opacity="0.12">?</text>
+  <text x="80" y="150" font-family="${FONT}" font-weight="700" font-size="30" letter-spacing="6" fill="${AMBER}">MARKETS · EXPLAINER</text>
+  <text x="80" y="256" font-family="${FONT}" font-weight="700" font-size="76" fill="${PAPER}">Is the AI boom</text>
+  <text x="80" y="340" font-family="${FONT}" font-weight="700" font-size="76" fill="${PAPER}">a bubble?</text>
+  <text x="80" y="432" font-family="${FONT}" font-weight="700" font-size="50" fill="${AMBER}">What October&#39;s selloff means</text>
+  <rect x="80" y="520" width="52" height="52" rx="12" fill="${AMBER}"/>
+  <text x="106" y="557" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="28" fill="${INK}">BB</text>
+  <text x="150" y="556" font-family="${FONT}" font-weight="700" font-size="30" fill="${PAPER}">The Buzz Break</text>
+</svg>`;
+
+// --- Article hero (AI bubble, 16:9) ---
+const heroAiBubble = `
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="ab" cx="52%" cy="30%" r="82%">
+      <stop offset="0%" stop-color="#26260f"/>
+      <stop offset="65%" stop-color="${INK}"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#ab)"/>
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="225" x2="1600" y2="225"/>
+    <line x1="0" y1="450" x2="1600" y2="450"/>
+    <line x1="0" y1="675" x2="1600" y2="675"/>
+    <line x1="400" y1="0" x2="400" y2="900"/>
+    <line x1="800" y1="0" x2="800" y2="900"/>
+    <line x1="1200" y1="0" x2="1200" y2="900"/>
+  </g>
+  <polyline points="300,712 540,664 760,560 980,470 1168,356" fill="none" stroke="${AMBER}" stroke-width="26" stroke-opacity="0.12" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="300,712 540,664 760,560 980,470 1168,356" fill="none" stroke="${AMBER}" stroke-width="9" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="1168,356 1147,388 1131,361" fill="${AMBER}" fill-opacity="0.85"/>
+  <text x="1232" y="432" font-family="${FONT}" font-weight="700" font-size="300" fill="${AMBER}" fill-opacity="0.9">?</text>
+  <text x="120" y="212" font-family="${FONT}" font-weight="700" font-size="34" letter-spacing="10" fill="${AMBER}">MARKETS · EXPLAINER</text>
+  <text x="120" y="332" font-family="${FONT}" font-weight="700" font-size="104" fill="${PAPER}">Is the AI boom</text>
+  <text x="120" y="440" font-family="${FONT}" font-weight="700" font-size="104" fill="${PAPER}">a bubble?</text>
+  <text x="120" y="512" font-family="${FONT}" font-weight="500" font-size="38" fill="${MUTED}">AI stocks just had their worst month in over a year.</text>
+  <rect x="120" y="762" width="56" height="56" rx="13" fill="${AMBER}"/>
+  <text x="148" y="802" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="30" fill="${INK}">BB</text>
+  <text x="192" y="801" font-family="${FONT}" font-weight="700" font-size="34" fill="${PAPER}">The Buzz Break</text>
+</svg>`;
+
 async function render(svg, size, path) {
 	const img = sharp(Buffer.from(svg));
 	if (size) img.resize(size, size, { fit: 'contain' });
@@ -92,6 +138,8 @@ async function render(svg, size, path) {
 await render(ogDefault, null, 'public/og/default.png');
 await render(ogBinance, null, 'public/og/binance-hack.png');
 await render(hero, null, 'src/assets/binance-hack-hero.png');
+await render(ogAiBubble, null, 'public/og/ai-bubble.png');
+await render(heroAiBubble, null, 'src/assets/ai-bubble-hero.png');
 await render(monogram, 512, 'public/favicon-512.png');
 await render(monogram, 180, 'public/apple-touch-icon.png');
 await render(monogram, 32, 'public/favicon-32.png');
