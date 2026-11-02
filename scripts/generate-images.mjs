@@ -119,9 +119,10 @@ const heroAiBubble = `
   <polygon points="1168,356 1147,388 1131,361" fill="${AMBER}" fill-opacity="0.85"/>
   <text x="1232" y="432" font-family="${FONT}" font-weight="700" font-size="300" fill="${AMBER}" fill-opacity="0.9">?</text>
   <text x="120" y="212" font-family="${FONT}" font-weight="700" font-size="34" letter-spacing="10" fill="${AMBER}">MARKETS · EXPLAINER</text>
-  <text x="120" y="332" font-family="${FONT}" font-weight="700" font-size="104" fill="${PAPER}">Is the AI boom</text>
-  <text x="120" y="440" font-family="${FONT}" font-weight="700" font-size="104" fill="${PAPER}">a bubble?</text>
-  <text x="120" y="512" font-family="${FONT}" font-weight="500" font-size="38" fill="${MUTED}">AI stocks just had their worst month in over a year.</text>
+  <text x="120" y="316" font-family="${FONT}" font-weight="700" font-size="92" fill="${PAPER}">The AI selloff</text>
+  <text x="120" y="400" font-family="${FONT}" font-weight="700" font-size="68" fill="${PAPER}">Bubble warning &#8212; or</text>
+  <text x="120" y="478" font-family="${FONT}" font-weight="700" font-size="68" fill="${AMBER}">a sale on the future?</text>
+  <text x="120" y="536" font-family="${FONT}" font-weight="500" font-size="34" fill="${MUTED}">AI stocks just had their worst month in over a year.</text>
   <rect x="120" y="762" width="56" height="56" rx="13" fill="${AMBER}"/>
   <text x="148" y="802" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="30" fill="${INK}">BB</text>
   <text x="192" y="801" font-family="${FONT}" font-weight="700" font-size="34" fill="${PAPER}">The Buzz Break</text>
