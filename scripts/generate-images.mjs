@@ -128,6 +128,54 @@ const heroAiBubble = `
   <text x="192" y="801" font-family="${FONT}" font-weight="700" font-size="34" fill="${PAPER}">The Buzz Break</text>
 </svg>`;
 
+// --- Reusable post templates (hero 16:9 + OG 1.91:1), used for new posts ---
+function postHero({ kicker, line1, line2, sub, motif = '' }) {
+	return `
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="pg" cx="52%" cy="30%" r="82%">
+      <stop offset="0%" stop-color="#26260f"/>
+      <stop offset="65%" stop-color="${INK}"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#pg)"/>
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="225" x2="1600" y2="225"/>
+    <line x1="0" y1="450" x2="1600" y2="450"/>
+    <line x1="0" y1="675" x2="1600" y2="675"/>
+    <line x1="400" y1="0" x2="400" y2="900"/>
+    <line x1="800" y1="0" x2="800" y2="900"/>
+    <line x1="1200" y1="0" x2="1200" y2="900"/>
+  </g>
+  ${motif}
+  <text x="120" y="212" font-family="${FONT}" font-weight="700" font-size="34" letter-spacing="10" fill="${AMBER}">${kicker}</text>
+  <text x="120" y="340" font-family="${FONT}" font-weight="700" font-size="90" fill="${PAPER}">${line1}</text>
+  <text x="120" y="446" font-family="${FONT}" font-weight="700" font-size="90" fill="${AMBER}">${line2}</text>
+  <text x="120" y="520" font-family="${FONT}" font-weight="500" font-size="36" fill="${MUTED}">${sub}</text>
+  <rect x="120" y="762" width="56" height="56" rx="13" fill="${AMBER}"/>
+  <text x="148" y="802" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="30" fill="${INK}">BB</text>
+  <text x="192" y="801" font-family="${FONT}" font-weight="700" font-size="34" fill="${PAPER}">The Buzz Break</text>
+</svg>`;
+}
+
+function postOg({ kicker, line1, line2, sub }) {
+	return `
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="${INK}"/>
+  <text x="80" y="140" font-family="${FONT}" font-weight="700" font-size="30" letter-spacing="6" fill="${AMBER}">${kicker}</text>
+  <text x="80" y="250" font-family="${FONT}" font-weight="700" font-size="70" fill="${PAPER}">${line1}</text>
+  <text x="80" y="336" font-family="${FONT}" font-weight="700" font-size="70" fill="${AMBER}">${line2}</text>
+  <text x="80" y="410" font-family="${FONT}" font-weight="500" font-size="30" fill="${MUTED}">${sub}</text>
+  <rect x="80" y="520" width="52" height="52" rx="12" fill="${AMBER}"/>
+  <text x="106" y="557" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="28" fill="${INK}">BB</text>
+  <text x="150" y="556" font-family="${FONT}" font-weight="700" font-size="30" fill="${PAPER}">The Buzz Break</text>
+</svg>`;
+}
+
+const MOTIF_ANTHROPIC = `<g opacity="0.16" fill="${AMBER}"><rect x="1130" y="360" width="90" height="300" rx="8"/><rect x="1255" y="440" width="90" height="220" rx="8"/><rect x="1380" y="520" width="90" height="140" rx="8"/></g>`;
+const MOTIF_APPLE = `<g opacity="0.18"><rect x="1150" y="560" width="78" height="100" rx="8" fill="#19E3A6"/><rect x="1255" y="500" width="78" height="160" rx="8" fill="#19E3A6"/><rect x="1360" y="440" width="78" height="220" rx="8" fill="#19E3A6"/></g><g opacity="0.24" fill="#e5484d"><rect x="1470" y="384" width="24" height="150" rx="4"/><polygon points="1482,600 1442,525 1522,525"/></g>`;
+const MOTIF_MIDTERMS = `<g opacity="0.16"><rect x="1110" y="360" width="110" height="300" rx="8" fill="${AMBER}"/><g fill="#19E3A6"><rect x="1270" y="600" width="60" height="60" rx="4"/><rect x="1335" y="560" width="60" height="100" rx="4"/><rect x="1400" y="520" width="60" height="140" rx="4"/><rect x="1465" y="480" width="60" height="180" rx="4"/></g></g>`;
+
 async function render(svg, size, path) {
 	const img = sharp(Buffer.from(svg));
 	if (size) img.resize(size, size, { fit: 'contain' });
@@ -140,6 +188,18 @@ await render(ogBinance, null, 'public/og/binance-hack.png');
 await render(hero, null, 'src/assets/binance-hack-hero.png');
 await render(ogAiBubble, null, 'public/og/ai-bubble.png');
 await render(heroAiBubble, null, 'src/assets/ai-bubble-hero.png');
+
+// Anthropic IPO (Nov 6)
+await render(postOg({ kicker: 'AI · EXPLAINER', line1: 'The $80.7B loss', line2: '— the wrong number?', sub: 'What could be the biggest IPO ever, decoded.' }), null, 'public/og/anthropic-ipo.png');
+await render(postHero({ kicker: 'AI · EXPLAINER', line1: 'The $80.7B loss', line2: '— the wrong number?', sub: 'What could be the biggest IPO ever, decoded.', motif: MOTIF_ANTHROPIC }), null, 'src/assets/anthropic-ipo-hero.png');
+
+// Apple fiscal year (Nov 4)
+await render(postOg({ kicker: 'TECH · EXPLAINER', line1: "Apple's best year", line2: '— and the stock fell', sub: 'The memory squeeze, explained.' }), null, 'public/og/apple-memory.png');
+await render(postHero({ kicker: 'TECH · EXPLAINER', line1: "Apple's best year", line2: '— and the stock fell', sub: 'The memory squeeze, explained.', motif: MOTIF_APPLE }), null, 'src/assets/apple-memory-hero.png');
+
+// Midterms & the market (Nov 5)
+await render(postOg({ kicker: 'MARKETS · EXPLAINER', line1: 'One big day.', line2: 'One long streak.', sub: 'Two facts the midterms blurred together.' }), null, 'public/og/midterms-market.png');
+await render(postHero({ kicker: 'MARKETS · EXPLAINER', line1: 'One big day.', line2: 'One long streak.', sub: 'Two facts the midterms blurred together.', motif: MOTIF_MIDTERMS }), null, 'src/assets/midterms-market-hero.png');
 await render(monogram, 512, 'public/favicon-512.png');
 await render(monogram, 180, 'public/apple-touch-icon.png');
 await render(monogram, 32, 'public/favicon-32.png');

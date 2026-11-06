@@ -1,0 +1,21 @@
+<svg width="720" height="360" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The $80.7 billion first-half 2026 net loss, split into about $72.4 billion of non-cash paper charge and about $8.3 billion that is the rest.">
+  <title>What's inside the $80.7B loss</title>
+  <rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+  <text x="36" y="44" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="800" fill="#0E0E10">What&#39;s inside the $80.7B loss</text>
+  <text x="36" y="70" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#6b7280">First-half 2026 net loss, split by type</text>
+
+  <text x="60" y="150" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#6b7280">Total: $80.7B net loss</text>
+
+  <!-- non-cash paper charge (~$72.4B) -->
+  <rect x="60" y="165" width="556" height="80" rx="4" fill="#FFF4CC" stroke="#FFC400" stroke-width="2"/>
+  <text x="338" y="205" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="800" fill="#0E0E10">$72.4B</text>
+  <text x="338" y="230" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#6b7280">non-cash · paper charge</text>
+
+  <!-- the rest (~$8.3B) -->
+  <rect x="616" y="165" width="64" height="80" rx="4" fill="#e5484d"/>
+  <line x1="648" y1="245" x2="648" y2="260" stroke="#e5484d" stroke-width="2"/>
+  <text x="648" y="280" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="800" fill="#e5484d">$8.3B</text>
+  <text x="648" y="297" text-anchor="middle" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" fill="#6b7280">the rest</text>
+
+  <text x="36" y="345" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#9ca3af">About $72.4B is a non-cash charge that never left the bank; even excluding it, H1 2026 was still a net loss. Sources: The Wrap, Built In.</text>
+</svg>
